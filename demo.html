@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+	<div class="ind_banBox">
+		<div id="ind_banBox">
+			<div class="ind_banPre"></div>
+			<div class="ind_banNext"></div>
+			<ul>
+				<li>
+					<a href="javascript:;"><img src="dist/images/index1.jpg"></a>
+					<a href="javascript:;"><img src="dist/images/index2.jpg"></a>
+					<a href="javascript:;"><img src="dist/images/index3.jpg"></a>
+					<a href="javascript:;"><img src="dist/images/index4.jpg"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script src="dist/js/lib/jquery-1.9.1.min.js"></script>
+    <script>
+    var index = 0;
+
+    $(function() {
+
+        $('#ind_banBox .ind_banPre').mouseover(function() {
+            clearTimeout(timever);
+        }).mouseout(function() {
+            timever = setInterval(paopao, 3000);
+        });
+
+
+        $('#ind_banBox .ind_banNext').mouseover(function() {
+            clearTimeout(timever);
+        }).mouseout(function() {
+            timever = setInterval(paopao, 3000);
+        });
+
+
+        $('#ind_banBox .ind_banNext').click(function() { //点击触发事件
+            index++;
+            if (index > 2) {
+                index = 0;
+            }
+            $("#ind_banBox").find('li').eq(index).fadeIn(400).siblings().fadeOut(400);
+        })
+
+        $('#ind_banBox .ind_banPre').click(function() { //点击触发事件
+            index--;
+            if (index == -1) {
+                index = 2;
+            }
+            $("#ind_banBox").find('li').eq(index).fadeIn(400).siblings().fadeOut(400);
+        })
+
+        $('#ind_banBox ul li').mouseover(function() { //鼠标滑过清楚定时器
+            clearTimeout(timever);
+        }).mouseout(function() {
+            timever = setInterval(paopao, 5000)
+        });
+
+
+        timever = setInterval(paopao, 5000);
+
+    })
+
+
+    function paopao() {
+        index++;
+        if (index > 2) {
+            index = 0;
+        }
+        $("#ind_banBox").find('li').eq(index).fadeIn(400).siblings().fadeOut(400);
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="src/css/common.css">
+	<link rel="stylesheet" href="src/css/index.css">
+	<link rel="stylesheet" href="dist/css/font-awesome.min.css">
+	<title>首页</title>
+</head>
+<body ng-controller="indexCtrl">
+	<div class="main">
+		<div class="title-box">
+			<h1 class="title fr">Just for vasiliky's birthday</h1><span class="intro fr"><i class="icon-tags"></i> 此时你是在想这里会弹出什么话么~嗯嗯~没有</span>
+		</div>
+		<ul class="menu" id="menu">
+			<li id="lastestLink" ng-click="jump($index)">
+				<a href="lastest.html"><i class="icon-bell rm20"></i>lastest</a>
+				<span class="intro"><i class="icon-pencil rm5 fr"></i>主人很花心~又设计了一款页面~赶快点击试试吧~</span>
+			</li>
+			<li>
+				<a href=""><i class="icon-bell-alt rm20"></i>log</a>
+				<span class="intro"><i class="icon-pencil rm5 fr"></i>不过主人还是很惦记之前的版本的~留个位呗</span>
+			</li>
+			<li>
+				<a href=""><i class="icon-cogs rm20"></i>...</a>
+				<span class="intro"><i class="icon-pencil rm5 fr"></i>没看到省略号么~还点~主人还没有想好新功能呢</span>
+			</li>
+		</ul>
+	</div>
+	<ul class="bg_list" id="bg_list">
+		<li ng-repeat="item in imgLists" style="background: url({{item}}); background-size: 100% 100%;z-index: {{-($index + 1)}}"></li>
+	</ul>
+	<div class="full_cover"></div>
+	<script src="src/js/lib/jquery-1.9.1.js"></script>
+	<script src="src/js/lib/angular.js"></script>
+	<script src="src/js/common.js"></script>
+	<script src="src/js/index.js"></script>
+</body>
+</html>
