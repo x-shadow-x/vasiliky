@@ -9,173 +9,34 @@
 <body ng-controller="lastestCtrl">
 	<header>头部</header>
 	<div class="main">
-		<figure class="effect-1">
-			<img src="src/images/1.jpg" alt="img1">
+		<figure class="effect-{{$index+1}}" ng-repeat="item in list">
+			<img src="src/images/{{$index+1}}.jpg" alt="img1">
 			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-2">
-			<img src="src/images/2.jpg" alt="img2">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-3">
-			<img src="src/images/3.jpg" alt="img3">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-4">
-			<img src="src/images/4.jpg" alt="img4">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-5">
-			<img src="src/images/5.jpg" alt="img5">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-6">
-			<img src="src/images/6.jpg" alt="img6">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-7">
-			<img src="src/images/7.jpg" alt="img7">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-8">
-			<img src="src/images/8.jpg" alt="img8">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-9">
-			<img src="src/images/9.jpg" alt="img9">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
+				<h2>{{item.title}}</h2>
+				<p>{{item.text}}</p>
 				<a href="#">View more</a>
 			</figcaption>			
 		</figure>
-		<figure class="effect-10">
-			<img src="src/images/10.jpg" alt="img10">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-11">
-			<img src="src/images/11.jpg" alt="img11">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-12">
-			<img src="src/images/12.jpg" alt="img12">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-13">
-			<img src="src/images/13.jpg" alt="img13">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-14">
-			<img src="src/images/14.jpg" alt="img14">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-15">
-			<img src="src/images/15.jpg" alt="img15">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-16">
-			<img src="src/images/16.jpg" alt="img7">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-17">
-			<img src="src/images/17.jpg" alt="img8">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-18">
-			<img src="src/images/18.jpg" alt="img9">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-19">
-			<img src="src/images/19.jpg" alt="img9">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-20">
-			<img src="src/images/20.jpg" alt="img9">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-21">
-			<img src="src/images/21.jpg" alt="img9">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-22">
-			<img src="src/images/22.jpg" alt="img9">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
-		</figure><figure class="effect-23">
-			<img src="src/images/23.jpg" alt="img9">
-			<figcaption>
-				<h2>Nice <span>Lily</span></h2>
-				<p>Lily likes to play with crayons and pencils</p>
-				<a href="#">View more</a>
-			</figcaption>			
+		<figure class="flipbook">
+			<div style="background:url(src/images/24.jpg)" alt="">
+				<h2>Nice Lily</h2>
+			</div>
+			<div style="background:url(src/images/24.jpg) center left" alt="" class="last">
+				<span>
+					Lily likes to play with crayons and pencils
+				</span>
+			</div>
+			<div style="background:url(src/images/24.jpg) center right" alt="" class="last">
+				<span>
+					故事还在继续...
+				</span>
+			</div>
 		</figure>
 	</div>
 	<script src="dist/js/lib/jquery-1.9.1.min.js"></script>
 	<script src="dist/js/lib/angular.min.js"></script>
 	<script src="dist/js/common.min.js"></script>
-	<script src="dist/js/lastest.min.js"></script>
+	<script src="dist/js/lib/modernizr.2.5.3.min.js"></script>
+	<script src="src/js/lastest.js"></script>
 </body>
 </html>
