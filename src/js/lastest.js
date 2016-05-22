@@ -94,6 +94,9 @@ module.controller('lastestCtrl', ['$scope', function($scope) {
 			text: 'Lily likes to play with crayons and pencils'
 		},
 	];
+
+	$scope.lastIndex = $scope.list.length + 1;
+
 	function loadApp() {
 		$('.flipbook').turn({});
 	}

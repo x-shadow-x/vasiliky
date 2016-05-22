@@ -63,16 +63,15 @@ figure {
 
 .effect-1 {
 	figcaption {
-		height: 50%;
-		top: 50%;
 		text-align: left;
 	}
 	h2 {
+		top: 70%;
 		left: 1em;
 	}
 	p {
 		left: 2em;
-		top: 70%;
+		top: 80%;
 	    opacity: 0;
 	    position: absolute;   
 	}
@@ -83,11 +82,11 @@ figure {
 	}
 	&:hover {
 		h2 {
-			top: 20%;
+			top: 60%;
 		}
 		p {
 			opacity: 0.8;
-			top: 50%;
+			top: 75%;
 		}
 		img {
 			opacity: 1.0;
@@ -109,7 +108,7 @@ figure {
 		}
 		
 		p {
-			bottom: 10px;
+			bottom: 32px;
 			opacity: 0;
 		}
 
@@ -124,7 +123,7 @@ figure {
 			}
 			p {
 				opacity: 1;
-				bottom: 20px;
+				bottom: 40px;
 			}
 		}
 		
@@ -133,9 +132,6 @@ figure {
 .effect-3 {
 	figcaption {
 		text-align: left;
-		top: auto;
-		bottom: 0;
-		height: 50%;
 		&::before {
 			left: 0;
 			top: -100%;
@@ -146,24 +142,23 @@ figure {
 		}
 	}
 	h2 {
-		top: 60%;
+		top: 70%;
 		left: 1em;
 	}
 	p {
 		opacity: 0;
 		top: 0;
 		left: 2em;
-		transition: top .48s;
 	}
 	&:hover {
 		figcaption::before {
 			opacity: 1.0;
 		}
 		h2 {
-			top: 50%;
+			top: 65%;
 		}
 		p {
-			top: 32%;
+			top: 55%;
 			opacity: 1;
 		}
 	}

@@ -1,0 +1,106 @@
+@keyframes myCDRotate
+{
+    from {transform:rotate(0);}
+    to {transform:rotate(360deg);}
+}
+
+@-moz-keyframes myCDRotate /* Firefox */
+{
+    from {transform:rotate(0);}
+    to {transform:rotate(360deg);}
+}
+
+@-webkit-keyframes myCDRotate /* Safari 和 Chrome */
+{
+    from {transform:rotate(0);}
+    to {transform:rotate(360deg);}
+}
+
+@-o-keyframes myCDRotate /* Opera */
+{
+    from {transform:rotate(0);}
+    to {transform:rotate(360deg);}
+}
+
+
+#cdPlayer
+{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 47%;
+    margin-top: -250px;
+    margin-left: -250px;
+}
+
+#CD
+{
+    width: 100%;
+    height: 100%;
+    background: #5F2E05;
+    background-size: cover;
+    z-index: 2000;
+    position: absolute;
+}
+#cdDisk
+{
+    width: 80%;
+    height: 80%;
+    text-align: center;
+    background: url("../images/cddisk.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 2000;
+}
+#cdCover
+{
+    width: 36%;
+    height: 36%;
+    background: url("../images/17.jpg") no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -18%;
+    margin-left: -18%;
+    z-index: 3;
+    transition:all 0.5s;
+}
+.cdStart
+{
+    animation:myCDRotate 5s infinite linear;
+}
+.cdPause
+{
+    animation-play-state:paused;
+}
+#cdControllerArm
+{
+    width: 20%;
+    height: 50%;
+    background: url("../images/controllerArm.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 2001;
+    top: 80px;
+    left: -60px;
+    -moz-transform-origin: top right;
+    -webkit-transform-origin:top right;
+    -o-transform-origin:top right;
+    transition:all 0.8s;
+    transform:rotate(-130deg);
+}
+.ctrl-btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    .button {
+        display: inline-block;
+        float: left;
+        margin-right: 32px;
+    }
+}

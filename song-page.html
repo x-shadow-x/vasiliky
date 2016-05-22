@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="dist/css/song-page.min.css">
+    <link rel="stylesheet" href="dist/css/font-awesome.min.css">
+	<title>Document</title>
+</head>
+<body>
+	<audio id="myAudio" preload="auto" controls="controls" >
+        <source src="">
+    </audio>
+    <div id="cdPlayer">
+        <div id="myConsole">曲名</div>
+        <div id="CD">
+            <div id="cdDisk"></div>
+            <div id="cdCover"></div>
+        </div>
+        <div id="cdControllerArm"></div>
+        <div class="ctrl-btn">
+            <div id="playBtn" class="button" title="播放"><i class="icon-play"></i></div>
+            <div id="pauseBtn" class="button" title="暂停"><i class="icon-pause"></i></div>
+            <div id="nextBtn" class="button" title="下一曲"><i class="icon-step-backward"></i></div>
+            <div id="preBtn" class="button" title="上一曲"><i class="icon-step-forward"></i></div>
+            <div id="stopBtn" class="button" title="停止"><i class="icon-stop"></i></div>
+            <div id="muteBtn" class="button" title="静音"><i class="icon-volume-off"></i></div>
+            <div id="firstBtn" class="button" title="首曲"><i class="icon-fast-backward"></i></div>
+            <div id="lastBtn" class="button" title="末曲"><i class="icon-fast-forward"></i></div>
+        </div>
+    </div>
+    <script src="dist/js/lib/jquery-1.9.1.min.js"></script>
+    <script src="dist/js/lib/angular.min.js"></script>
+    <script src="dist/js/common.min.js"></script>
+    <script src="dist/js/song-page.min.js"></script>
+</body>
+</html>

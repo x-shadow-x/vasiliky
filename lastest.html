@@ -2,31 +2,34 @@
 <html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="src/css/common.css">
-	<link rel="stylesheet" href="src/css/lastest.css">
+	<link rel="stylesheet" href="dist/css/common.min.css">
+	<link rel="stylesheet" href="dist/css/lastest.min.css">
 	<title>新版页面</title>
 </head>
 <body ng-controller="lastestCtrl">
-	<header>头部</header>
+	<header>
+		<h1>Song Lists</h1>
+		<p class="Jackey_HandWrite">different pictures with a different song , choose one and see what will happen~</p>
+	</header>
 	<div class="main">
 		<figure class="effect-{{$index+1}}" ng-repeat="item in list">
 			<img src="src/images/{{$index+1}}.jpg" alt="img1">
 			<figcaption>
 				<h2>{{item.title}}</h2>
 				<p>{{item.text}}</p>
-				<a href="#">View more</a>
+				<a href="song-page.html?id={{$index+1}}">View more</a>
 			</figcaption>			
 		</figure>
 		<figure class="flipbook">
-			<div style="background:url(src/images/24.jpg)" alt="">
+			<div style="background:url(src/images/{{lastIndex}}.jpg)" alt="">
 				<h2>Nice Lily</h2>
 			</div>
-			<div style="background:url(src/images/24.jpg) center left" alt="" class="last">
+			<div style="background:url(src/images/{{lastIndex}}.jpg) center left" alt="" class="last">
 				<span>
 					Lily likes to play with crayons and pencils
 				</span>
 			</div>
-			<div style="background:url(src/images/24.jpg) center right" alt="" class="last">
+			<div style="background:url(src/images/{{lastIndex}}.jpg) center right" alt="" class="last">
 				<span>
 					故事还在继续...
 				</span>
