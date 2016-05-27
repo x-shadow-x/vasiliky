@@ -1,0 +1,6 @@
+<div class="page-bar" ng-show="list.length>0">
+    <a href="javascript:;" ng-class="current<=0?'disabled jump':'jump'" ng-click="prev()">&lt;</a>
+    <a href="javascript:;" ng-repeat="key in keyList" ng-class="key==current ? 'cur page_num' : 'page_num'" ng-click="jump(key)">{{key+1}}</a>
+    <span ng-show="pLen>pMax && !hideEllipsis">...</span>
+    <a href="javascript:;" ng-class="current>=pLen-1?'disabled jump':'jump'" ng-click="next()">&gt;</a>
+</div>

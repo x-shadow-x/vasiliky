@@ -1,0 +1,163 @@
+@keyframes myCDRotate {
+  from {
+    transform: rotate(0) translate(-50%, -50%); }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%); } }
+@-moz-keyframes myCDRotate {
+  from {
+    transform: rotate(0) translate(-50%, -50%); }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%); } }
+@-webkit-keyframes myCDRotate {
+  from {
+    transform: rotate(0) translate(-50%, -50%); }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%); } }
+@-o-keyframes myCDRotate {
+  from {
+    transform: rotate(0) translate(-50%, -50%); }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%); } }
+body {
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)), url("../images/blackBg.jpg");
+  background-size: 100% 100%; }
+
+.cdPlayer {
+  width: 800px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0; }
+
+.info {
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  width: 40%;
+  color: #fff;
+  margin-right: 10px;
+  border-radius: 6px; }
+  .info .title {
+    margin-bottom: 32px; }
+  .info .desc {
+    line-height: 1.5em; }
+
+.CD {
+  width: 600px;
+  padding-top: 600px;
+  z-index: 999;
+  position: absolute;
+  bottom: 0;
+  right: 0; }
+  .CD .cd-disk {
+    width: 65%;
+    padding-top: 65%;
+    text-align: center;
+    background: url("../images/cddisk.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    z-index: 1000; }
+  .CD .cd-controller-arm {
+    width: 17%;
+    padding-top: 34%;
+    background: url("../images/controllerArm.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 2001;
+    top: 32%;
+    left: 5%;
+    -moz-transform-origin: top right;
+    -webkit-transform-origin: top right;
+    -o-transform-origin: top right;
+    transition: all 0.8s;
+    transform: rotate(-130deg); }
+  .CD .cd-cover {
+    width: 32%;
+    padding-top: 32%;
+    background: url("../images/17.jpg") no-repeat;
+    background-size: cover;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    transform: translate(-50%, -50%);
+    transform-origin: 0 0;
+    z-index: 3;
+    transition: all 0.5s; }
+
+.cdStart {
+  animation: myCDRotate 5s infinite linear; }
+
+.cdPause {
+  animation-play-state: paused; }
+
+.ctrl-btn {
+  position: fixed;
+  z-index: 1001;
+  bottom: 0;
+  width: 100%;
+  height: 50px; }
+  .ctrl-btn .button {
+    display: inline-block;
+    width: 20px;
+    float: left;
+    margin-right: 16px;
+    color: #fff; }
+
+.progress-bar-box {
+  display: inline-block;
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 5px;
+  border-radius: 10px;
+  margin-top: 7px;
+  margin-right: 16px;
+  background: rgba(255, 255, 255, 0.3); }
+  .progress-bar-box .progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: rgba(255, 0, 0, 0.7);
+    border-radius: 10px; }
+  .progress-bar-box .progress-bar-node {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid #fff;
+    border-radius: 20px; }
+
+.comment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 760px;
+  height: 100%;
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8), transparent), url("../images/rainBg3.png");
+  background-size: 100% 100%; }
+
+.icon-volume-up {
+  color: #fff; }
+
+.icon-volume-off {
+  color: red; }
+
+.comment {
+  color: #fff; }
+
+.comment_list {
+  padding: 0 32px; }
+  .comment_list li {
+    margin-top: 32px;
+    border-bottom: 1px solid #888; }
+
+.date {
+  display: block;
+  text-align: right;
+  color: #fff;
+  font-size: 12px; }
+
+/*# sourceMappingURL=song-page.css.map */

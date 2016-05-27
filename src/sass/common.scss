@@ -46,6 +46,9 @@ ul {
 a {
 	text-decoration: none;
 }
+em {
+	font-style: normal;
+}
 .full_cover {
 	position: fixed;
 	left: 0;
@@ -86,5 +89,28 @@ header {
 		color: #7e959d;
 		margin-bottom: 32px;
 	}
-	
+}
+.page-bar {
+	position: absolute;
+	left: 50%;
+	bottom: 32px;
+	transform: translateX(-50%);
+}
+.page_num {
+	color: #333;
+}
+.cur {
+	color: #fff;
+}
+.jump.disabled {
+	color: #333;
+}
+.jump {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	background: rgba(0, 0, 0, 0.7);
 }
