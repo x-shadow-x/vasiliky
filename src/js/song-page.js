@@ -247,21 +247,21 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
     };
 
     function getQueryObject() {
-        var url = window.location.href;
-        var search = url.substring(url.lastIndexOf("?") + 1);
-        var obj = {};
-        var reg = /([^?&=]+)=([^?&=]*)/g;
-        search.replace(reg, function (rs, $1, $2) {
-            var name = decodeURIComponent($1);
-            var val = decodeURIComponent($2);                
-            val = String(val);
-            obj[name] = val;
-            return rs;
-        });
-        return obj;
-    }
+	    var url = window.location.href;
+	    var search = url.substring(url.lastIndexOf("?") + 1);
+	    var obj = {};
+	    var reg = /([^?&=]+)=([^?&=]*)/g;
+	    search.replace(reg, function (rs, $1, $2) {
+	        var name = decodeURIComponent($1);
+	        var val = decodeURIComponent($2);                
+	        val = String(val);
+	        obj[name] = val;
+	        return rs;
+	    });
+	    return obj;
+	}
 
-    function getData(param) {
+	function getData(param) {
         return function (option) {
             option.url = option.url + '?timeStamp=' + (new Date()).valueOf();
             return $http(option).then(function (response) {
@@ -283,19 +283,19 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
                 };
             });
         };
-    }
+	}
 
-    request({
-        url:'../../data/song-list.json',
-        method:'GET'
-    }).then(function(rs) {
+	request({
+		url:'../../data/song-list.json',
+		method:'GET'
+	}).then(function(rs) {
         $scope.songsList = rs.data;
         init();
     }, function(err) {
         console(err);
     });
 
-    $scope.pageSearchList = {
+	$scope.pageSearchList = {
         pn: 1,//当前显示的是第几页
         ps: 10,//每页显示多少条
         pl: 5,//分页栏显示页数
@@ -310,14 +310,14 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
 
         var param = {
             url: 'http://127.0.0.1:7999/get-comment',
-            method: 'GET',
-            params: args
+			method: 'GET',
+			params: args
         };
 
         request(param).then(function(rs) {
             console.log(rs);
 
-            if (rs.data) {
+			if (rs.data) {
                 pn = $scope.pageSearchList.pn;
                 rs.pa = {
                     total: rs.data.total,//rs.data.params.total,
@@ -328,12 +328,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
                 console.log(rs);
                 $scope.commentLists = rs.data.data[0].data;
                 console.log($scope.commentLists);
-            }
-            
-        }, function(err)  {
-            console.log(err);
-        });
+            }	
+		}, function(err)  {
+			console.log(err);
+		});
     };
-
-
 }]);
