@@ -165,3 +165,25 @@ body {
     background: -webkit-linear-gradient(left, rgba(0,0,0,.8), rgba(0, 0, 0, 0)),url('../images/rainBg3.png');
     background-size: 100% 100%;
 }
+.icon-volume-up {
+    color: #fff;
+}
+.icon-volume-off {
+    color: red;
+}
+.comment {
+    color: #fff;
+}
+.comment_list {
+    padding: 0 32px;
+    li {
+        margin-top: 32px;
+        border-bottom: 1px solid #888;
+    }
+}
+.date {
+    display: block;
+    text-align: right;
+    color: #fff;
+    font-size: 12px;
+}
