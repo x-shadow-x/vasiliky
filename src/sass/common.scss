@@ -85,18 +85,18 @@ header {
 }
 .page-bar {
 	position: absolute;
-	left: 50%;
-	bottom: 32px;
-	transform: translateX(-50%);
+	left: 32px;
+	bottom: 175px;
 }
 .page_num {
-	color: #333;
+	color: #747474;
+	padding: 0 5px;
 }
 .cur {
 	color: #fff;
 }
 .jump.disabled {
-	color: #333;
+	color: #747474;
 }
 .jump {
 	display: inline-block;
@@ -105,5 +105,5 @@ header {
 	line-height: 20px;
 	text-align: center;
 	color: #fff;
-	background: rgba(0, 0, 0, 0.7);
+	// background: rgba(0, 0, 0, 0.7);
 }

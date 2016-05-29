@@ -20,6 +20,7 @@ module.directive("pagination", function() {
                 $scope.pageNode = $scope.current;
                 $scope.pNum = parseInt($scope.pageargs.ps);
                 $scope.pMax = parseInt($scope.pageargs.pl) || 5;
+                
                 $scope.pagefn($scope.pageargs, function(data) {
                     $scope.pLen = Math.ceil(parseInt(data.pa.total) / $scope.pNum);
                     $scope.keyListWatch();

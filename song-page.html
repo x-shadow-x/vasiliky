@@ -8,7 +8,7 @@
 	<title>Document</title>
 </head>
 <body ng-controller="songCtrl">
-	<audio id="myAudio" preload="auto" controls="controls">
+	<audio id="myAudio" preload="auto">
         <source src="">
     </audio>
     <div class="cdPlayer">
@@ -34,14 +34,29 @@
         </div>
     </div>
     <div class="comment">
+        <h2 class="comment_title">
+            <i class="icon-tags"></i>
+            留个言给主人吧~
+        </h2>
         <ul class="comment_list">
             <li ng-repeat="item in commentLists">
-                <p>
-                    {{item.text}}
+                <div class="user_box">
+                    <i class="icon-user"></i>
+                    <span class="user">{{item.user}}</span>
+                    <span class="date">{{item.time}}</span>
+                </div>
+                <p class="content_box">
+                    <i class="icon-comments"></i>
+                    <span>
+                        {{item.text}}
+                    </span>
                 </p>
-                <span class="date">{{item.time}}</span>
             </li>
         </ul>
+        <div class="comment_input_box">
+            <textarea class="comment_input" cols="30" rows="10" placeholder="她很懒~什么都没有留下~" ng-model="commentContent"></textarea>
+            <button type="button" class="submit" ng-click="submitComment()">发表</button>
+        </div>
         <pagination list="commentLists" pagefn="getOrderList" pageargs="pageSearchList" class="page-bar ng-isolate-scope"></pagination>
     </div>
     <script src="dist/js/lib/jquery-1.9.1.min.js"></script>
@@ -49,6 +64,6 @@
     <script src="dist/js/common.min.js"></script>
     <script src="dist/js/request.min.js"></script>
     <script src="dist/js/pagination.min.js"></script>
-    <script src="dist/js/song-page.min.js"></script>
+    <script src="src/js/song-page.js"></script>
 </body>
 </html>

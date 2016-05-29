@@ -37,6 +37,7 @@
 body {
     background: -webkit-linear-gradient(left, rgba(0,0,0,.6), rgba(0,0,0,.1)),url('../images/blackBg.jpg');
     background-size: 100% 100%;
+    font-size: 14px;
 }
 .cdPlayer {
     width: 800px;
@@ -174,16 +175,78 @@ body {
 .comment {
     color: #fff;
 }
+.comment_title {
+    margin: 20px 32px;
+}
 .comment_list {
-    padding: 0 32px;
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-70%);
+    width: 70%;
     li {
         margin-top: 32px;
         border-bottom: 1px solid #888;
+        overflow: hidden;
     }
 }
-.date {
-    display: block;
-    text-align: right;
-    color: #fff;
-    font-size: 12px;
+.user_box {
+    overflow: hidden;
+    margin-bottom: 10px;
+    i {
+        display: inline-block;
+        float: left;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        margin-right: 10px;
+        text-align: center;
+        background: #000;
+        font-size: 32px;
+        border-radius: 100px;
+    }
+    .user {
+        display: block;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .date {
+        display: block;
+        margin-top: 10px;
+        float: left;
+        color: #fff;
+        font-size: 12px;
+    }
+}
+.content_box {
+    background: rgba(99, 99, 99, 0.5);
+    overflow: hidden;
+    border-radius: 6px;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+}
+.comment_input_box {
+    position: absolute;
+    left: 32px;
+    bottom: 32px;
+    width: 70%;
+}
+.comment_input {
+    width: 100%;
+    height: 100px;
+    max-width: 100%;
+    max-height: 100px; 
+    padding: 10px 10px;
+    box-sizing: border-box;
+    margin-bottom: 32px;
+}
+.submit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    color:#747474;
+    border: none;
+    outline: none;
+    padding: 5px 20px;
 }
