@@ -1,45 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="dist/css/common.min.css">
-	<link rel="stylesheet" href="dist/css/lastest.min.css">
-	<title>新版页面</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="max-age=3600" />
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta name="MobileOptimized" content="240" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+    <link rel="stylesheet" href="dist/css/common.min.css">
+    <link rel="stylesheet" href="dist/css/scrollbar.min.css">
+    <link rel="stylesheet" href="dist/css/lastest.min.css">
+    <!-- <link rel="stylesheet" href="src/css/lastest.css"> -->
+    <title>song-list</title>
 </head>
+
 <body ng-controller="lastestCtrl">
-	<header>
-		<h1>Song Lists</h1>
-		<p class="Jackey_HandWrite">different pictures with a different song , choose one and see what will happen~</p>
-	</header>
-	<div class="main">
-		<figure class="effect-{{$index+1}}" ng-repeat="item in list">
-			<img src="src/images/{{$index+1}}.jpg" alt="img1">
-			<figcaption>
-				<h2>{{item.title}}</h2>
-				<p>{{item.text}}</p>
-				<a href="song-page.html?id={{$index+1}}">View more</a>
-			</figcaption>			
-		</figure>
-		<figure class="flipbook">
-			<div style="background:url(src/images/{{lastIndex}}.jpg)" alt="">
-				<h2>Nice Lily</h2>
-			</div>
-			<div style="background:url(src/images/{{lastIndex}}.jpg) center left" alt="" class="last">
-				<span>
-					Lily likes to play with crayons and pencils
-				</span>
-			</div>
-			<div style="background:url(src/images/{{lastIndex}}.jpg) center right" alt="" class="last">
-				<span>
-					故事还在继续...
-				</span>
-			</div>
-		</figure>
-	</div>
-	<script src="dist/js/lib/jquery-1.9.1.min.js"></script>
-	<script src="dist/js/lib/angular.min.js"></script>
-	<script src="dist/js/common.min.js"></script>
-	<script src="dist/js/lib/modernizr.2.5.3.min.js"></script>
-	<script src="src/js/lastest.js"></script>
+    <div class="content" id="content">
+        <header>
+            <h1>Song Lists</h1>
+            <p class="Jackey_HandWrite">different pictures with a different song , choose one and see what will happen~</p>
+        </header>
+        <div class="main">
+            <figure class="effect-{{$index+1}}" ng-repeat="item in list">
+                <span class="hover"></span>
+                <img src="" original="dist/images/{{$index+1}}.jpg" class="lazy_load" alt="img1">
+                <figcaption>
+                    <h2>{{item.title}}</h2>
+                    <p>{{item.abstract}}</p>
+                    <a href="song-page.html?id={{$index+1}}">View more</a>
+                </figcaption>
+            </figure>
+            <figure class="flipbook">
+                <div style="background:url(dist/images/{{lastIndex}}.jpg)" alt="">
+                    <h2>move to the corner</h2>
+                </div>
+                <div style="background:url(dist/images/{{lastIndex}}.jpg) center left" alt="" class="last">
+                    <span class="last_text">
+                        Wish you a happy 24th birthday~
+                    </span>
+                </div>
+                <div style="background:url(dist/images/{{lastIndex}}.jpg) center right" alt="" class="last">
+                    <span class="last_text">
+    					to be continued...
+    				</span>
+                </div>
+            </figure>
+            <p class="tip">24岁的阿姨了~哈哈哈哈~木有找到合适的七里香图~所以挑了一张小的在早云山上拍的富士山</p>
+        </div>
+    </div>
+    <script src="dist/js/lib/jquery-1.9.1.min.js"></script>
+    <script src="dist/js/lib/angular.min.js"></script>
+    <script src="dist/js/common.min.js"></script>
+    <script src="dist/js/request.min.js"></script>
+    <script src="dist/js/lib/modernizr.2.5.3.min.js"></script>
+    <script src="dist/js/lib/scrollbar-mousewheel.min.js"></script>
+    <script src="dist/js/lib/scrollbar.min.js"></script>
+    <script src="dist/js/lib/lazy.min.js"></script>
+    <script src="dist/js/lastest.min.js"></script>
 </body>
+
 </html>

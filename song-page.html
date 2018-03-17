@@ -2,13 +2,20 @@
 <html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="max-age=3600" />
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta name="MobileOptimized" content="240" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
     <link rel="stylesheet" href="dist/css/common.min.css">
-    <link rel="stylesheet" href="dist/css/song-page.min.css">
     <link rel="stylesheet" href="dist/css/font-awesome.min.css">
-	<title>Document</title>
+    <link rel="stylesheet" href="dist/css/song-page.min.css">
+	<title>song</title>
 </head>
 <body ng-controller="songCtrl">
-	<audio id="myAudio" preload="auto">
+	<audio id="myAudio" preload="auto" autobuffer="true" autoplay="true">
         <source src="">
     </audio>
     <div class="cdPlayer">
@@ -18,12 +25,15 @@
         </div>
         <div class="CD">
             <div class="cd-disk"></div>
-            <div id="cdCover" class="cd-cover"></div>
+            <!-- <div id="cdCover" class="cd-cover"></div> -->
+            <div class="cd-cover-box">
+                <img src="src/images/{{songsListIndex + 1}}.jpg" alt="" class="cd-cover" id="cdCover">
+            </div>
             <div id="cdControllerArm" class="cd-controller-arm"></div>
         </div>     
         <div class="ctrl-btn">
             <div class="button" title="上一曲" ng-click="handlePreBtn()"><i class="icon-step-backward"></i></div>
-            <div id="playBtn" class="button" title="播放" ng-click="handlePlayBtn()"><i class="icon-play"></i></div>
+            <div id="playBtn" class="button" title="播放" ng-click="handlePlayBtn()"><i class="icon-pause"></i></div>
             <div class="button" title="下一曲" ng-click="handleNextBtn()"><i class="icon-step-forward"></i></div>
             <div class="progress-bar-box">
                 <span id="progressBar" class="progress-bar">
@@ -53,11 +63,11 @@
                 </p>
             </li>
         </ul>
+        <pagination list="commentLists" pagefn="getOrderList" pageargs="pageSearchList" class="page-bar ng-isolate-scope"></pagination>
         <div class="comment_input_box">
             <textarea class="comment_input" cols="30" rows="10" placeholder="她很懒~什么都没有留下~" ng-model="commentContent"></textarea>
             <button type="button" class="submit" ng-click="submitComment()">发表</button>
         </div>
-        <pagination list="commentLists" pagefn="getOrderList" pageargs="pageSearchList" class="page-bar ng-isolate-scope"></pagination>
     </div>
     <script src="dist/js/lib/jquery-1.9.1.min.js"></script>
     <script src="dist/js/lib/angular.min.js"></script>

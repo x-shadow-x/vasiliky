@@ -35,8 +35,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
             controllArm.style.transform = "rotate(-130deg)"
             if (playMode == "list") {
                 $scope.songsListIndex++;
-                if ($scope.songsListIndex >= $scope.songsList.length + 1)
+                if ($scope.songsListIndex >= $scope.songsList.length) {
                     $scope.songsListIndex = 0;
+                }
             } else if (playMode == "shuffle") {
                 $scope.songsListIndex = shuffle();
             } else {
@@ -46,7 +47,13 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
             myAudio.load();
             iStartDeg = -90;
             iEndDeg = -115;
+            $scope.$apply();
             myAudio.play();
+        }, false);
+
+        myAudio.addEventListener('play', function() {
+            $cdCover.removeClass("cdPause");
+            $cdCover.addClass("cdStart");
         }, false);
 
         myAudio.addEventListener("timeupdate", function() {
@@ -90,9 +97,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
 
     function reload() {
         $scope.pageSearchList = {
-            pn: 1,//当前显示的是第几页
-            ps: 3,//每页显示多少条
-            pl: 3,//分页栏显示页数
+            pn: 1, //当前显示的是第几页
+            ps: 3, //每页显示多少条
+            pl: 3, //分页栏显示页数
             songId: $scope.songsListIndex + 1,
             switch: true //用以在需要reload时做pageSearchList的修改~以便在pagination.js的指令中watch~从而调用getOrderList分页函数
         };
@@ -105,9 +112,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
     $scope.handlePlayBtn = function() {
         if ($playBtnI.hasClass('icon-play')) {
             play();
-         } else {
+        } else {
             pause();
-         }
+        }
     }
 
     $scope.handleNextBtn = function() {
@@ -134,18 +141,30 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
 
         $shuffleMode.click(function() {
             playMode = "shuffle";
-            $("#playMode").find("div").css({ "color": "#b1b9c6" });
-            $(this).css({ "color": "#e74d3c" });
+            $("#playMode").find("div").css({
+                "color": "#b1b9c6"
+            });
+            $(this).css({
+                "color": "#e74d3c"
+            });
         });
         $listMode.click(function() {
             playMode = "list";
-            $("#playMode").find("div").css({ "color": "#b1b9c6" });
-            $(this).css({ "color": "#e74d3c" });
+            $("#playMode").find("div").css({
+                "color": "#b1b9c6"
+            });
+            $(this).css({
+                "color": "#e74d3c"
+            });
         });
         $loopMode.click(function() {
             playMode = "loop";
-            $("#playMode").find("div").css({ "color": "#b1b9c6" });
-            $(this).css({ "color": "#e74d3c" });
+            $("#playMode").find("div").css({
+                "color": "#b1b9c6"
+            });
+            $(this).css({
+                "color": "#e74d3c"
+            });
         });
     }
 
@@ -174,7 +193,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
         console.log($progressBarNode);
 
 
-        $("#listMode").css({ "color": "#e74d3c" });
+        $("#listMode").css({
+            "color": "#e74d3c"
+        });
         shuffleIndex = [];
         shuffleIndexCount = $scope.songsList.length - 1;
         initShuffleGenerator();
@@ -208,10 +229,11 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
                 if (!$cdCover.hasClass("cdStart")) {
                     $cdCover.addClass("cdStart");
                 }
-                    
+
                 controllArm.style.transform = "rotate(-130deg)";
                 if (whatDirection == "pre") {
                     $scope.songsListIndex--;
+                    console.log($scope.songsListIndex, '================Xx');
                     if ($scope.songsListIndex < 0)
                         $scope.songsListIndex = $scope.songsList.length - 1;
                 } else if (whatDirection == "next") {
@@ -247,9 +269,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
         var search = url.substring(url.lastIndexOf("?") + 1);
         var obj = {};
         var reg = /([^?&=]+)=([^?&=]*)/g;
-        search.replace(reg, function (rs, $1, $2) {
+        search.replace(reg, function(rs, $1, $2) {
             var name = decodeURIComponent($1);
-            var val = decodeURIComponent($2);                
+            var val = decodeURIComponent($2);
             val = String(val);
             obj[name] = val;
             return rs;
@@ -258,12 +280,12 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
     }
 
     function getData(param) {
-        return function (option) {
+        return function(option) {
             option.url = option.url + '?timeStamp=' + (new Date()).valueOf();
-            return $http(option).then(function (response) {
+            return $http(option).then(function(response) {
                 var defer = $q.defer();
 
-                if(angular.isUndefined(response)){
+                if (angular.isUndefined(response)) {
                     defer.reject({
                         type: -1,
                         data: response
@@ -272,7 +294,7 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
                     defer.resolve(response.data);
                 }
                 return defer.promise;
-            }, function (err) {
+            }, function(err) {
                 throw {
                     type: -1,
                     data: err
@@ -287,32 +309,35 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
         var datas = {
             songId: $scope.songsListIndex + 1
         };
-        
+
         datas.content = {
+            songId: $scope.songsListIndex + 1,
             user: '匿名',
             time: time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate() + ' ' + time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds(),
             text: $scope.commentContent
         };
 
         var param = {
-            url: 'http://127.0.0.1:7999/get-comment',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            url: 'http://anewsong.duapp.com/get-comment',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
             method: 'POST',
             data: datas
         };
-        
+
         request(param).then(function() {
             $scope.commentContent = '';
             reload();
 
-        },function(err) {
+        }, function(err) {
             console.log(err);
         });
     }
 
     request({
-        url:'../../data/song-list.json',
-        method:'GET'
+        url: '../../data/song-list.json',
+        method: 'GET'
     }).then(function(rs) {
         $scope.songsList = rs.data;
         init();
@@ -321,9 +346,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
     });
 
     $scope.pageSearchList = {
-        pn: 1,//当前显示的是第几页
-        ps: 3,//每页显示多少条
-        pl: 3,//分页栏显示页数
+        pn: 1, //当前显示的是第几页
+        ps: 3, //每页显示多少条
+        pl: 3, //分页栏显示页数
         songId: $scope.songsListIndex + 1,
         switch: true //用以在需要reload时做pageSearchList的修改~以便在pagination.js的指令中watch~从而调用getOrderList分页函数
     };
@@ -331,9 +356,9 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
     /**
      * 分页组建回调函数
      */
-    $scope.getOrderList = function(args, success){
+    $scope.getOrderList = function(args, success) {
         var param = {
-            url: 'http://127.0.0.1:7999/get-comment',
+            url: 'http://anewsong.duapp.com/get-comment',
             method: 'GET',
             params: args
         };
@@ -344,16 +369,16 @@ module.controller('songCtrl', ['$scope', '$http', 'request', function($scope, $h
             if (rs.data) {
                 pn = $scope.pageSearchList.pn;
                 rs.pa = {
-                    total: rs.data.total,//rs.data.params.total,
-                    pn: $scope.pageSearchList.pn,//当前显示的是第几页
+                    total: rs.data.total, //rs.data.params.total,
+                    pn: $scope.pageSearchList.pn, //当前显示的是第几页
                     ps: $scope.pageSearchList.ps //每页显示多少条
                 };
                 success(rs);
                 console.log(rs);
                 $scope.commentLists = rs.data.data;
                 console.log($scope.commentLists);
-            }   
-        }, function(err)  {
+            }
+        }, function(err) {
             console.log(err);
         });
     };

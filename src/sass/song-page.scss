@@ -40,7 +40,7 @@ body {
     font-size: 14px;
 }
 .cdPlayer {
-    width: 800px;
+    width: 60%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -95,18 +95,24 @@ body {
         transition:all 0.8s;
         transform:rotate(-130deg);
     }
-    .cd-cover {
+    .cd-cover-box {
         width: 32%;
-        padding-top: 32%;
-        background: url("../images/17.jpg") no-repeat;
-        background-size: cover;
+        height: 32%;
+        overflow: hidden;
         position: absolute;
         bottom: 5%;
         right: 5%;
         transform: translate(-50%, -50%);
-        transform-origin: 0 0;
         z-index: 3;
         transition:all 0.5s;
+    }
+    .cd-cover {
+        position: absolute;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: 0 0;
     }
 }
 
@@ -161,9 +167,9 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 760px;
+    width: 40%;
     height: 100%;
-    background: -webkit-linear-gradient(left, rgba(0,0,0,.8), rgba(0, 0, 0, 0)),url('../images/rainBg3.png');
+    background: -webkit-linear-gradient(left, rgba(0,0,0,.8), rgba(0, 0, 0, 0)),url('../images/rainBg3.png') repeat-y;
     background-size: 100% 100%;
 }
 .icon-volume-up {
@@ -249,4 +255,122 @@ body {
     border: none;
     outline: none;
     padding: 5px 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .cdPlayer {
+        position: relative;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-top: calc(95% + 50px);
+    }
+
+    .comment {
+        position: relative;
+        width: auto;
+    }
+    .CD {
+        width: 100%;
+        padding-top: 0;
+        bottom: auto;
+        top: 15%;
+        bottom: 0;
+    }
+
+    .CD .cd-controller-arm {
+        top: 10%;
+        left: -10%;
+    }
+
+    .CD .cd-disk {
+        top: 8%;
+        bottom: auto;
+        right: auto;
+        left: 18%;
+    }
+
+    .CD .cd-cover-box {
+        top: 8%;
+        width: 65%;
+        padding-top: 65%;
+        bottom: auto;
+        transform: none;
+        right: auto;
+        left: 18%;
+    }
+
+    .CD .cd-cover-box {
+        border-radius: 1000px;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .CD .cd-cover {
+        height: auto;
+        max-height: 80%;
+        max-width: 80%;
+    }
+
+    .info {
+        display: none;
+    }
+
+    .ctrl-btn {
+        position: absolute;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .ctrl-btn .button, .progress-bar-box {
+        vertial-align: middle;
+        float: none;
+    }
+
+    .comment {
+        height: auto;
+        background-size: auto 100%;
+    }
+
+    .comment_list,
+    .comment_input_box {
+        position: static;
+        transform: none;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .comment_input_box {
+        margin-top: 4%;
+        overflow: hidden;
+        padding-bottom: 4%;
+    }
+
+    .page-bar {
+        position: static;
+        width: 90%;
+        margin: 10% auto 0 auto;
+    }
+
+    .progress-bar-box {
+        width: 50%;
+        margin-top: 0;
+    }
+
+    .ctrl-btn .button, .progress-bar-box {
+        margin-right: 10px;
+        float: none;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .submit {
+        position: static;
+        float: right;
+    }
+
+    .comment_title {
+        margin-top: 0;
+        padding-top: 20px;
+    }
 }
